@@ -1,0 +1,10 @@
+
+- hosts: tag_name_webserver
+  roles:
+  - role: webserver
+    conf_file: raghav
+    document_root_folder: "/var/www/raghav"
+
+- hosts: tag_name_loadbalancer
+  roles:
+  - role: loadbalancer

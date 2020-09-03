@@ -1,0 +1,25 @@
+
+  - name: installing haproxy 
+    package:
+      name: haproxy
+      state: present
+    register: proxy_install
+
+ 
+
+  - name: configuring the haproxy
+    template:
+      dest: /etc/haproxy/haproxy.cfg
+      src: haproxy.cfg
+    when: proxy_install.rc == 0
+    register: configure_haproxy
+    notify: restart haproxy
+
+
+
+
+
+
+
+ 
+   
